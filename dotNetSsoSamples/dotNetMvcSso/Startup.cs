@@ -1,9 +1,9 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(dotNetWebFormsSso.Startup))]
+[assembly: OwinStartup(typeof(dotNetMvcSso.Startup))]
 
-namespace dotNetWebFormsSso
+namespace dotNetMvcSso
 {
     public class Startup
     {

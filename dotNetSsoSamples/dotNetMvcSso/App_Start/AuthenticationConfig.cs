@@ -8,7 +8,7 @@ using System.Web.Helpers;
 using Steeltoe.Security.Authentication.CloudFoundry;
 using Microsoft.AspNet.Identity;
 
-namespace dotNetWebFormsSso
+namespace dotNetMvcSso
 {
     public class AuthenticationConfig
     {

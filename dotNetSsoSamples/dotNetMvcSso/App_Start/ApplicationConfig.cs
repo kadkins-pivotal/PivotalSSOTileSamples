@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 using System.IO;
 
-namespace dotNetWebFormsSso
+namespace dotNetMvcSso
 {
     public class ApplicationConfig
     {

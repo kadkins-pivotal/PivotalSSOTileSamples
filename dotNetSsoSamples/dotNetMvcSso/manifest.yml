@@ -1,0 +1,10 @@
+﻿applications:
+- name: dotNetMvcSso
+  buildpacks:
+  - hwc_buildpack
+  disk_quota: 1G
+  instances: 1
+  memory: 1G
+  services:
+  - PingFederate Sandbox
+  stack: windows

@@ -2,9 +2,9 @@
 
 This example was created with .Net Framework 4.5+, SteelToe 2.2.0.0, PCF PAS 2.5, PCF SSO Tile 1.9.
 
-## .Net Framework Web Forms SSO Sample
+## .Net Framework MVC SSO Sample
 
-This is a guide to integrate a .Net framework web forms application with the Pivotal SSO Tile. This project is an example of a completed integration.
+This is a guide to integrate a .Net framework MVC web application with the Pivotal SSO Tile. This project is an example of a completed integration.
 
 The sample provides authentication to all entry points of an application. It is meant to provide authentication as IIS would when Windows authentication is enabled.
 
@@ -36,7 +36,7 @@ using Microsoft.Extensions.Logging;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 using System.IO;
 
-namespace dotNetWebFormsSso
+namespace dotNetMvcSso
 {
     public class ApplicationConfig
     {
@@ -87,7 +87,7 @@ using System.Web.Helpers;
 using Steeltoe.Security.Authentication.CloudFoundry;
 using Microsoft.AspNet.Identity;
 
-namespace dotNetWebFormsSso
+namespace dotNetMvcSso
 {
     public class AuthenticationConfig
     {
@@ -153,9 +153,9 @@ Note: If you already have an Owin Startup class, add a call to AuthenticationCon
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(dotNetWebFormsSso.Startup))]
+[assembly: OwinStartup(typeof(dotNetMvcSso.Startup))]
 
-namespace dotNetWebFormsSso
+namespace dotNetMvcSso
 {
     public class Startup
     {
@@ -169,11 +169,11 @@ namespace dotNetWebFormsSso
 
 ##### Add the manifest
 
-Create a new file in your project called **manifest.yml**. Copy the contents below into the file and change the application name and the name of the SSO Service binding to match your environment. In the sample you will change **dotNetWebFormsSso** and **PingFederate Sandbox** accordingly. Change the properties of the file so that the property **Copy to Output Directory** is equaly to **Copy Always**. 
+Create a new file in your project called **manifest.yml**. Copy the contents below into the file and change the application name and the name of the SSO Service binding to match your environment. In the sample you will change **dotNetMvcSso** and **PingFederate Sandbox** accordingly. Change the properties of the file so that the property **Copy to Output Directory** is equaly to **Copy Always**. 
 
 ```yaml
 applications:
-- name: dotNetWebFormsSso
+- name: dotNetMvcSso
   buildpacks:
   - hwc_buildpack
   disk_quota: 1G
