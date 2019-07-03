@@ -7,6 +7,7 @@ using Steeltoe.Security.Authentication.CloudFoundry.Owin;
 using System.Web.Helpers;
 using Steeltoe.Security.Authentication.CloudFoundry;
 using Microsoft.AspNet.Identity;
+using Microsoft.Owin;
 
 namespace dotNetWebFormsSso
 {
@@ -36,6 +37,7 @@ namespace dotNetWebFormsSso
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ExternalCookie,
+                LoginPath = new PathString("/"),
                 CookieSecure = CookieSecureOption.Always,
                 SlidingExpiration = true,
                 ExpireTimeSpan = TimeSpan.FromMinutes(5)
