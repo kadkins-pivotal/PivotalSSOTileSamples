@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 using System.IO;
+using System.Collections.Generic;
 
 namespace dotNetWebFormsSso
 {
@@ -21,6 +22,8 @@ namespace dotNetWebFormsSso
             var builder = new ConfigurationBuilder()
                 .SetBasePath(GetContentRoot())
                 .AddEnvironmentVariables()
+                //uncomment if using self signed certificates
+                //.AddInMemoryCollection(new Dictionary<string, string>() { { "security:oauth2:client:validateCertificates", "False" } })
                 .AddCloudFoundry();
 
             Configuration = builder.Build();
