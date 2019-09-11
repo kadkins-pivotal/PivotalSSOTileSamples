@@ -6,5 +6,10 @@ applications:
   instances: 1
   memory: 1G
   services:
-  - PingFederate Sandbox
+  - uaa-sso
   stack: windows
+
+  env:
+
+  # Whitelist of redirect URI(s) allowed for the application. This value must start with http:// or https://
+     SSO_REDIRECT_URIS: http://dotNetWebFormsSso.apps.pcf25.az.deployfast.io/**,https://dotNetWebFormsSso.apps.pcf25.az.deployfast.io/**

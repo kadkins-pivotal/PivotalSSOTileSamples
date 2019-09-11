@@ -15,22 +15,6 @@ namespace dotNetMvcSso
     {
         public static void Register(IAppBuilder app)
         {
-            app.Use((context, next) =>
-            {
-                if (context.Request.Headers["X-Forwarded-Proto"] == "https")
-                {
-                    context.Request.Scheme = "https";
-                }
-                else
-                {
-                    context.Response.StatusCode = 302;
-                    context.Response.Redirect(
-                        $"https://{context.Request.Host}{context.Request.Path}"
-                        + $"{context.Request.QueryString}");
-                }
-                return next();
-            });
-
             app.SetDefaultSignInAsAuthenticationType(
                 DefaultAuthenticationTypes.ExternalCookie);
 
@@ -38,7 +22,7 @@ namespace dotNetMvcSso
             {
                 AuthenticationType = DefaultAuthenticationTypes.ExternalCookie,
                 LoginPath = new PathString("/"),
-                CookieSecure = CookieSecureOption.Always,
+//                CookieSecure = CookieSecureOption.Always,
                 SlidingExpiration = true,
                 ExpireTimeSpan = TimeSpan.FromMinutes(5)
             });
